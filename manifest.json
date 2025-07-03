@@ -9,12 +9,14 @@
       "storage",
       "alarms",
       "activeTab",
-      "scripting"
+      "scripting",
+      "notifications"
     ],
     
     "host_permissions": [
       "https://www.googleapis.com/*",
-      "https://mail.google.com/*"
+      "https://mail.google.com/*",
+      "http://localhost:3000/*"
     ],
     
     "oauth2": {
@@ -44,7 +46,7 @@
     "content_scripts": [
       {
         "matches": ["https://mail.google.com/*"],
-        "js": ["content.js"],
+        "js": ["config.js", "content.js"],
         "css": ["content.css"],
         "run_at": "document_end"
       }
@@ -59,7 +61,7 @@
     
     "web_accessible_resources": [
       {
-        "resources": ["icons/*", "assets/*"],
+        "resources": ["icons/*", "config.js"],
         "matches": ["https://mail.google.com/*"]
       }
     ]
